@@ -9,8 +9,9 @@
 <body class="bg-dark text-white">
     <div class="container mt-5">
         <h1 class="text-center">Ajouter un Film</h1>
-        <form action="{{ url('/films') }}" method="POST" class="mt-4">
-            @csrf <!-- Token de sécurité -->
+        <form action="{{ route('films.store') }}" method="POST" class="mt-4">
+    @csrf <!-- Token de sécurité obligatoire -->
+
 
             <div class="mb-3">
                 <label for="title" class="form-label">Titre</label>
@@ -71,11 +72,11 @@
                 <label for="lastUpdate" class="form-label">Dernière mise à jour</label>
                 <input type="datetime-local" class="form-control" id="lastUpdate" name="lastUpdate" required>
             </div>
-
-            <div class="mb-3">
+ 
+            <!--<div class="mb-3">
                 <label for="idDirector" class="form-label">Réalisateur (ID)</label>
                 <input type="number" class="form-control" id="idDirector" name="idDirector" required>
-            </div>
+            </div> -->
 
             <button type="submit" class="btn btn-primary w-100">Ajouter le Film</button>
         </form>

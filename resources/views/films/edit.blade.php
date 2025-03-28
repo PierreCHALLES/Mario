@@ -7,6 +7,14 @@
                 @csrf
                 @method('PUT')
 
+                <!-- Champs cachés pour les données non modifiables -->
+                <input type="hidden" name="languageId" value="{{ old('languageId', $film['languageId']) }}">
+                <input type="hidden" name="originalLanguageId" value="{{ old('originalLanguageId', $film['originalLanguageId']) }}">
+                <input type="hidden" name="rentalDuration" value="{{ old('rentalDuration', $film['rentalDuration']) }}">
+                <input type="hidden" name="rentalRate" value="{{ old('rentalRate', $film['rentalRate']) }}">
+                <input type="hidden" name="length" value="{{ old('length', $film['length']) }}">
+                <input type="hidden" name="rating" value="{{ old('rating', $film['rating']) }}">
+
                 <!-- Titre -->
                 <div class="mb-4">
                     <label for="title" class="text-lg font-medium text-gray-600">Titre :</label>
@@ -43,21 +51,22 @@
                     @enderror
                 </div>
 
-                <!-- Fonctionnalités spéciales -->
-                <div class="mb-4">
-                    <label for="specialFeatures" class="text-lg font-medium text-gray-600">Fonctionnalités spéciales :</label>
-                    <input type="text" name="specialFeatures" id="specialFeatures" class="w-full p-2 border border-gray-300 rounded" value="{{ old('specialFeatures', $film['specialFeatures']) }}">
-                </div>
-
+                
                 <!-- Dernière mise à jour -->
                 <div class="mb-4">
                     <label for="lastUpdate" class="text-lg font-medium text-gray-600">Dernière mise à jour :</label>
                     <input type="datetime-local" name="lastUpdate" id="lastUpdate" class="w-full p-2 border border-gray-300 rounded" value="{{ old('lastUpdate', $film['lastUpdate']) }}">
                 </div>
 
+                <!-- Fonctionnalités spéciales -->
+                <div class="mb-4">
+                    <label for="specialFeatures" class="text-lg font-medium text-gray-600">Fonctionnalités spéciales :</label>
+                    <input type="text" name="specialFeatures" id="specialFeatures" class="w-full p-2 border border-gray-300 rounded" value="{{ old('specialFeatures', $film['specialFeatures']) }}">
+                </div>
+
                 <!-- Bouton Sauvegarder -->
                 <div class="mt-6 text-center">
-                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
+                    <button type="submit" class="bg-blue-500 text-black px-4 py-2 rounded">
                         Sauvegarder les modifications
                     </button>
                 </div>

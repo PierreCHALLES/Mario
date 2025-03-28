@@ -1,20 +1,37 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto p-6 lg:p-8">
         <h1 class="text-3xl font-bold mb-6">Catalogue de Films</h1>
-        <a href="{{ route('films.create', $filmId['filmId']) }}" class="bg-green-500 text-black px-4 py-2 rounded text-center">
-                            Ajouter un Film
-                        </a>
+        <x-responsive-nav-link :href="route('films.create')" :active="request()->routeIs('films.create')">
+            {{ __('Ajouter un Film') }}
+        </x-responsive-nav-link>
+
+        <!-- Barre de recherche -->
+        <form method="GET" action="{{ route('films.index') }}" class="mb-6">
+            <div class="flex items-center gap-2">
+                <input 
+                    type="text" 
+                    name="search" 
+                    placeholder="Rechercher un film..." 
+                    value="{{ request('search') }}"
+                    class="border border-gray-300 rounded-lg px-4 py-2 w-full"
+                >
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg">
+                    Rechercher
+                </button>
+            </div>
+        </form>
+
         <!-- Grille de films -->
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
             @foreach ($films as $film)
                 <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4 flex flex-col justify-between h-56">
                     <!-- Image du film -->
-<img 
-    src="{{ asset('Image/ImageFilm.jpg') }}" 
-    alt="Affiche de film" 
-    style="width: 100px; height: 100px; object-fit: cover;" 
-    class="rounded mb-2 mx-auto"
->
+                    <img 
+                        src="{{ asset('Image/ImageFilm.jpg') }}" 
+                        alt="Affiche de film" 
+                        style="width: 100px; height: 100px; object-fit: cover;" 
+                        class="rounded mb-2 mx-auto"
+                    >
                     
                     <h2 class="text-xl font-semibold mb-2 text-center">{{ $film['title'] }}</h2>
                     
