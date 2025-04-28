@@ -15,15 +15,9 @@ Route::get('/', function () {
 });
 Route::post('/login_staff', [LoginController::class, 'login'])->name('login_staff');
 
-/*Route::get('/login', function () {
-    return view('auth.login'); // Assure-toi que la page login existe
-})->name('login');*/
-
 Route::get('/mario', function () {
     return view('dashboard');
 })->name('dashboard');
-
-
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -31,6 +25,13 @@ Route::get('/mario', function () {
 //Route pour ajouter un film
 Route::get('/films/create', [AjouterFilmController::class, 'create'])->name('films.create');
 Route::post('/films', [AjouterFilmController::class, 'store'])->name('films.store');
+
+
+// Route pour afficher le formulaire (GET)
+Route::get('/ajouter-inventaire', [AjouterFilmController::class, 'crees'])->name('ajouter.inventory');
+
+// Route pour traiter l'ajout (POST)
+Route::post('/ajouter-inventaire', [AjouterFilmController::class, 'Ajout']);
 
 // Routes pour les films
 Route::get('/films', [FilmController::class, 'index'])->name('films.index');

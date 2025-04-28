@@ -28,55 +28,6 @@
                 <input type="number" class="form-control" id="releaseYear" name="releaseYear" required min="1900" max="{{ date('Y') }}">
             </div>
 
-            <div class="mb-3">
-                <label for="languageId" class="form-label">Langue</label>
-                <input type="number" class="form-control" id="languageId" name="languageId" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="originalLanguageId" class="form-label">Langue originale</label>
-                <input type="number" class="form-control" id="originalLanguageId" name="originalLanguageId">
-            </div>
-
-            <div class="mb-3">
-                <label for="rentalDuration" class="form-label">Durée de location</label>
-                <input type="number" class="form-control" id="rentalDuration" name="rentalDuration" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="rentalRate" class="form-label">Tarif de location</label>
-                <input type="number" step="0.01" class="form-control" id="rentalRate" name="rentalRate" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="length" class="form-label">Durée (en minutes)</label>
-                <input type="number" class="form-control" id="length" name="length" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="replacementCost" class="form-label">Coût de remplacement</label>
-                <input type="number" step="0.01" class="form-control" id="replacementCost" name="replacementCost" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="rating" class="form-label">Classification</label>
-                <input type="text" class="form-control" id="rating" name="rating" required maxlength="10">
-            </div>
-
-            <div class="mb-3">
-                <label for="specialFeatures" class="form-label">Caractéristiques spéciales</label>
-                <input type="text" class="form-control" id="specialFeatures" name="specialFeatures">
-            </div>
-
-            <div class="mb-3">
-                <label for="lastUpdate" class="form-label">Dernière mise à jour</label>
-                <input type="datetime-local" class="form-control" id="lastUpdate" name="lastUpdate" required>
-            </div>
- 
-            <!--<div class="mb-3">
-                <label for="idDirector" class="form-label">Réalisateur (ID)</label>
-                <input type="number" class="form-control" id="idDirector" name="idDirector" required>
-            </div> -->
 
             <button type="submit" class="btn btn-primary w-100">Ajouter le Film</button>
         </form>

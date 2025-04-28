@@ -15,5 +15,6 @@ class Film extends Model
         'genre',
         'epoque',
         'lastUpdate',
+        
     ];
 }

@@ -14,6 +14,7 @@
                 <input type="hidden" name="rentalRate" value="{{ old('rentalRate', $film['rentalRate']) }}">
                 <input type="hidden" name="length" value="{{ old('length', $film['length']) }}">
                 <input type="hidden" name="rating" value="{{ old('rating', $film['rating']) }}">
+                <input type="hidden" name="lastUpdate" id="lastUpdate" value="{{ now()->format('Y-m-d H:i:s') }}">
 
                 <!-- Titre -->
                 <div class="mb-4">
@@ -53,10 +54,10 @@
 
                 
                 <!-- Dernière mise à jour -->
-                <div class="mb-4">
+                <!--div class="mb-4">
                     <label for="lastUpdate" class="text-lg font-medium text-gray-600">Dernière mise à jour :</label>
                     <input type="datetime-local" name="lastUpdate" id="lastUpdate" class="w-full p-2 border border-gray-300 rounded" value="{{ old('lastUpdate', $film['lastUpdate']) }}">
-                </div>
+                </div>-->
 
                 <!-- Fonctionnalités spéciales -->
                 <div class="mb-4">

@@ -20,7 +20,11 @@
                     </x-nav-link>
             <x-nav-link :href="route('Gestion.Stock')"> 
                         {{ __('Gérer Inventaire') }} 
-            </x-responsive-nav-link> 
+            </x-responsive-nav-link>
+            <x-nav-link :href="route('ajouter.inventory')"> 
+                        {{ __('Ajouter un film à l inventaire') }} 
+            </x-responsive-nav-link>
+             
                 </div>
             </div>
 

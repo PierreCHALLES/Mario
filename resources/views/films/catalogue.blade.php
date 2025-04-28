@@ -15,7 +15,7 @@
                     value="{{ request('search') }}"
                     class="border border-gray-300 rounded-lg px-4 py-2 w-full"
                 >
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg">
+                <button type="submit" class="bg-blue-500 text-black px-4 py-2 rounded-lg">
                     Rechercher
                 </button>
             </div>

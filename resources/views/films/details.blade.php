@@ -18,11 +18,6 @@
                 <p class="text-gray-700">{{ $film['releaseYear'] }}</p>
             </div>
 
-            <!-- Coût de remplacement -->
-            <div class="mb-4">
-                <h3 class="text-lg font-medium text-gray-600">Coût de remplacement :</h3>
-                <p class="text-gray-700">{{ $film['replacementCost'] }} €</p>
-            </div>
 
             <!-- Fonctionnalités spéciales -->
             <div class="mb-4">

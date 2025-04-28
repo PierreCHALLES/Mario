@@ -78,32 +78,17 @@ class FilmController extends Controller
         $port = env('TOAD_PORT');
         $endpoint = "/toad/film/update/$filmId";
         $servrequest = rtrim($adress, '/') . $port;
-
-        // Validation des données
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string|max:1000',
-            'releaseYear' => 'required|integer|min:1900|max:' . date('Y'),
-            'replacementCost' => 'required|numeric',
-            'specialFeatures' => 'nullable|string',
-            'languageId' => 'required|integer',
-            'originalLanguageId' => 'nullable|integer',
-            'rentalDuration' => 'required|integer|min:1|max:100',
-            'rentalRate' => 'required|numeric|min:0.1',
-            'length' => 'nullable|integer|min:1',
-            'rating' => 'nullable|string|max:10',
-        ]);
-
-        try {
-            $response = Http::put($servrequest . $endpoint, $validated);
-            if ($response->successful()) {
-                return redirect()->route('films.index')->with('success', 'Film mis à jour avec succès.');
-            }
-        } catch (\Exception $e) {
-            return redirect()->route('films.index')->withErrors('Erreur : ' . $e->getMessage());
+        $lastUpdate = Carbon::now()->format('Y-m-d H:i:s');
+        $data = $request->all();
+        $data['LastUpdate'] = $lastUpdate;
+        
+        $response = Http::asForm()->put($servrequest . $endpoint,$data);
+        if ($response->successful()) {    
+            return redirect()->route('films.index')->with('success', 'Film mis à jour avec succès.');
         }
-
-        return redirect()->route('films.index')->with('error', 'Échec de la mise à jour du film.');
+        else {
+            return redirect()->route('films.index')->with('error', 'Échec de la mise à jour du film.');
+        }
     }
 
     public function deleteFilm(Request $request, $id)
