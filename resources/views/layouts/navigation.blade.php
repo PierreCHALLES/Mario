@@ -18,10 +18,10 @@
                     <x-nav-link href="films" onclick="fetchFilms(event)">
                         {{ __('Films') }}
                     </x-nav-link>
-            <x-nav-link :href="route('Gestion.Stock')"> 
-                        {{ __('Gérer Inventaire') }} 
+            <x-nav-link :href="route('gestionStock.index')"> 
+                        {{ __('Inventaire') }} 
             </x-responsive-nav-link>
-            <x-nav-link :href="route('ajouter.inventory')"> 
+            <x-nav-link :href="route('inventory.create')"> 
                         {{ __('Ajouter un film à l inventaire') }} 
             </x-responsive-nav-link>
              

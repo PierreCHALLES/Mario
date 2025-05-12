@@ -102,5 +102,8 @@ class AjouterFilmController extends Controller
     // Affiche la vue avec la liste des films
     return view('AjoutInventaire', ['films' => $films]);
 }
+
+
+
 }
 

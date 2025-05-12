@@ -16,7 +16,7 @@
         <div class="alert alert-danger">{{ session('error') }}</div>
     @endif
 
-    <form action="{{ route('ajouter.inventory') }}" method="POST" class="card p-4 shadow-sm bg-white">
+    <form action="{{ route('inventory.create') }}" method="POST" class="card p-4 shadow-sm bg-white">
         @csrf
 
         <div class="mb-3">

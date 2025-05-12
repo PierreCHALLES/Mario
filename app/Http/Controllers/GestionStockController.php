@@ -47,6 +47,7 @@ class GestionStockController extends Controller
                     'totalLoues' => $filmStock['totalLoues'] ?? 'N/A',
                     'district' => $item['district'],
                     'address' => $item['address'],
+                    'filmId' => $item['filmId'],
                 ];
             });
             
@@ -71,4 +72,26 @@ class GestionStockController extends Controller
         // Gestion des erreurs si l'une des API échoue
         return redirect()->back()->withErrors('Impossible de récupérer les stocks.');
     }
-}
+
+    public function destroy($filmId, Request $request)
+    {
+        // Utilise les mêmes variables que pour l'ajout/inventaire déjà fonctionnel
+        $base   = env('TOAD_SERVER') . env('TOAD_PORT');
+        $url    = "{$base}/toad/inventory/deleteDVD/{$filmId}";
+    
+        // DEBUG (temporaire) : 
+        // dd($url, Http::delete($url)->body());
+    
+        $response = Http::delete($url);
+    
+        if ($response->failed()) {
+            return redirect()
+                ->route('gestionStock.index')
+                ->with('error', 'Erreur lors de la suppression du DVD : ' . $response->body());
+        }
+    
+        return redirect()
+            ->route('gestionStock.index')
+            ->with('success', $response->body());
+    }
+  }
